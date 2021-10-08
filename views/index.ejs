@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encrypter</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark text-white ">
+    <div class="container">
+
+        <div class="row mt-4">
+            <h1 class='mb-5 '>URL Encrypter</h1>
+            <form action="/shortUrls" method="POST" class="mb-3">
+                <label for="fullUrl" class="form-label">URL</label>
+                <div class="form d-flex inline">
+                    <input type="url" name="fullUrl" id="fullUrl" class="form-control w-75">
+                    <button type="submit" class="btn btn-success ">Shrink</button>
+                </div>
+            </form>
+        </div>
+        
+        <table class='table text-white'>
+            <thead>
+                <tr>
+                    <th>Full URL</th>
+                    <th>Encrypted URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortUrls.forEach(shortUrl => { %>
+                    <tr>
+                        <td><a href="<%=shortUrl.full%>"><%=shortUrl.full%></a></td>
+                        <td><a href="<%=shortUrl.short%>">https://localhost/<%=shortUrl.short%></a></td>
+                        <td><%=shortUrl.clicks%></td>
+                    </tr>
+                    <%})%>
+                </tbody>
+            </table>
+        </div>
+        </body>
+        </html>
